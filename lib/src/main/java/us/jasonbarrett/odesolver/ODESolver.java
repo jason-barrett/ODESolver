@@ -27,4 +27,8 @@ public interface ODESolver {
     public List<Vector<Double>> solve(ODESystem system, ODEMethod method,
                                       Vector<Double> initialCond, Vector<Double> parameters,
                                       double initialTimeStep, double endTime);
+
+     public static ODESolver getInstance() {
+        return new ODESolverImpl();
+    }
 }

@@ -4,7 +4,7 @@ import java.util.*;
 import us.jasonbarrett.odesolver.method.ODEMethod;
 import us.jasonbarrett.odesolver.system.ODESystem;
 
-public class ODESolverImpl implements ODESolver {
+class ODESolverImpl implements ODESolver {
     /**
      *
      * @param system A system of ODEs to solve, defined in terms of a function from

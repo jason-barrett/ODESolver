@@ -17,19 +17,19 @@ public class Order4RungeKuttaMethod implements ODEMethod {
 
         Vector<Double> k2 = new Vector<>(point.size());
         for( int i = 0; i < point.size(); i++ ) {
-            k2.add((k1.get(i) * timeStep * 0.5) + point.get(0));
+            k2.add((k1.get(i) * timeStep * 0.5) + point.getFirst());
         }
         k2 = f.apply(k2);
 
         Vector<Double> k3 = new Vector<>(point.size());
         for( int i = 0; i < point.size(); i++ ) {
-            k3.add((k2.get(i) * timeStep * 0.5) + point.get(0));
+            k3.add((k2.get(i) * timeStep * 0.5) + point.getFirst());
         }
         k3 = f.apply(k3);
 
         Vector<Double> k4 = new Vector<>(point.size());
         for( int i = 0; i < point.size(); i++ ) {
-            k4.add((k3.get(i) * timeStep) + point.get(0));
+            k4.add((k3.get(i) * timeStep) + point.getFirst());
         }
         k4 = f.apply(k4);
 

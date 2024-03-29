@@ -1,5 +1,6 @@
 plugins {
     id 'java-library'
+    id 'maven-publish'
 }
 
 group = 'us.jasonbarrett'
@@ -16,4 +17,18 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+
+publishing {
+    publications {
+        /*
+        Define a MavenPublication called 'mavenJava' to publish this library.  Add POM information if I
+        really want to publish it remotely.
+         */
+        mavenJava(MavenPublication) {
+            artifactId = 'ode-solver'
+
+            from components.java  // Publish the Java component built here, i.e., the ODESolver library JAR
+        }
+    }
 }

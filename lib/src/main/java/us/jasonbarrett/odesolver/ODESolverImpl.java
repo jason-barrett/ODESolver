@@ -22,9 +22,12 @@ class ODESolverImpl implements ODESolver {
      * dynamics of the ODE system.  In case of any errors, this returns an empty trajectory
      * instead of null.
      */
-    public List<Vector<Double>> solve(ODESystem system, ODEMethod method,
-                                           Vector<Double> initialCond, Vector<Double> parameters,
-                                           double initialTimeStep, double endTime) {
+    public List<Vector<Double>> solve(ODESystem system,
+                                      ODEMethod method,
+                                      Vector<Double> initialCond,
+                                      Vector<Double> parameters,
+                                      double initialTimeStep,
+                                      double endTime) {
 
         Objects.requireNonNull(system, "ODESystem cannot be null");
         Objects.requireNonNull(method, "ODEMethod cannot be null");
@@ -42,8 +45,8 @@ class ODESolverImpl implements ODESolver {
             Get the next point in the trajectory.
              */
             StepResult stepResult = method.step(point,
-                    system.takeDerivative(point, parameters),
-                    stepSize);
+                                                system.takeDerivative(point, parameters),
+                                                stepSize);
 
             Vector<Double> nextPoint = stepResult.nextPoint();
             trajectory.add(nextPoint);

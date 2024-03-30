@@ -5,6 +5,10 @@ import us.jasonbarrett.odesolver.StepResult;
 import java.util.Vector;
 import java.util.function.Function;
 
+/*
+This is *an* Order 4 Runge-Kutta method - the term applies to a family of methods which may use different constants.
+This is the algorithm described in Chapter 4 of Burden and Faires, Numerical Analysis, 5th Edition.
+ */
 public class Order4RungeKuttaMethod implements ODEMethod {
     @Override
     public StepResult step(Vector<Double> point,
@@ -35,7 +39,7 @@ public class Order4RungeKuttaMethod implements ODEMethod {
 
         for (int i = 0; i < point.size(); i++) {
             next_point.add(point.get(i)
-                    + ((timeStep / 6) * (k1.get(i) + k2.get(i) + k3.get(i) + k4.get(i))));
+                    + ((timeStep / 6) * (k1.get(i) + (2 * k2.get(i)) + (2 * k3.get(i)) + k4.get(i))));
         }
 
         return new StepResult(next_point, timeStep);

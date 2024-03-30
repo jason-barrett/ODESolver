@@ -40,7 +40,7 @@ public class AdaptiveTrapezoidalMethod implements ODEMethod {
         StepResult halfStep2 = trapezoidalMethod.step(halfStep1.nextPoint(), f, timeStep / 2);
 
         try {
-            Double error = MathUtils.scaledVectorDistance(fullStep.nextPoint(), halfStep2.nextPoint());
+            double error = MathUtils.scaledVectorDistance(fullStep.nextPoint(), halfStep2.nextPoint());
 
             if( (error / timeStep) < TOLERANCE ) {
                 return new StepResult(halfStep2.nextPoint(), timeStep);

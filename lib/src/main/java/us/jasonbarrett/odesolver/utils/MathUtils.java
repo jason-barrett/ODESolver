@@ -41,23 +41,4 @@ public class MathUtils {
 
         return Math.sqrt(squaredDifferences);
     }
-    /**
-     * This method computes the distance between two vectors, scaled to the size of the vectors.
-     * @param v1  The first vector
-     * @param v2  The second vector
-     * @return  The Euclidean distance between the vectors, normalized by the size of the vectors
-     * @throws IllegalArgumentException
-     */
-    public static double scaledVectorDistance(Vector<Double> v1, Vector<Double> v2) throws IllegalArgumentException {
-        if( v1.size() != v2.size() ) {
-            throw new IllegalArgumentException("Can't compute distance between vectors of unequal size");
-        }
-
-        double squaredDifferences = 0.0;
-        for( int i = 0; i < v1.size(); i++ ) {
-            squaredDifferences += Math.pow((v1.get(i) - v2.get(i)), 2);
-        }
-
-        return Math.sqrt(squaredDifferences / v1.size());
-    }
 }
